@@ -13,6 +13,6 @@ const router = new Router({
         path: '/signup',
         component: Signup
     }]
-})
+}) 
 
 export default router;
