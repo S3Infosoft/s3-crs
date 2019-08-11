@@ -26,6 +26,8 @@
           <router-link class="nav-link" to="/login">Login</router-link></a>
       </li>
 
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="Signup.vue">

@@ -14,10 +14,10 @@
                 <form class="user">
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Name of Hotel">
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Name of Organisation">
                     </div>
                     </div>
                     <div class="form-group">
@@ -25,21 +25,84 @@
                     </div>
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Create Password">
                     </div>
                     <div class="col-sm-6">
                         <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
                     </div>
                     </div>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                    Register Account
-                    </a>
                     <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
-                    <i class="fab fa-google fa-fw"></i> Register with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                    <div class="col-sm-6 mt-3">
+                        <h5><b>Hotel Details</b></h5>
+					<b>Image One</b><input type="file" name="image" class="form-control-file">
+                    <b>Image Two</b><input type="file" name="image" class="form-control-file">
+				</div><br>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" id="exampleCity" placeholder="City">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-control-user" id="exampleState" placeholder="State">
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="numbers" class="form-control form-control-user" id="exampleZIP" placeholder="ZIP">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-control-user" id="exampleCountry" placeholder="Country">
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" id="exampleCurrency" placeholder="Currency Preference">
+                    </div>
+                    </div>
+                <div class="form-group">
+                    <textarea rows="2" class="form-control form-control-user" id="Exampleaddress" placeholder="Address"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <textarea rows="3" class="form-control form-control-user" id="Exampledescription" placeholder="Description"></textarea>
+                    </div>
+                    <hr>
+                    <div class="col-sm-6 mt-3">
+                        <h5><b>Additional Images</b></h5>
+					<b>Image Three</b><input type="file" name="image" class="form-control-file">
+                    <b>Image Four</b><input type="file" name="image" class="form-control-file">
+				</div><br>
+                <hr>
+                <h4>Hotel Policy Section</h4>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="numbers" class="form-control form-control-user" id="examplein" placeholder="Check out Time">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-control-user" id="exampleOut" placeholder="Check in Time">
+                    </div>
+                    </div>
+                    <b><h6>Late Checkout allowed</h6></b>
+                    <div>
+                    <input type="radio" id="exampleYes" name="Yes" value="yes">
+                    <label for="Yes">Yes</label>
+                    </div>
+                    <div>
+                    <input type="radio" id="exampleNo" name="No" value="no">
+                    <label for="No">No</label>
+                    </div>
+                    <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" id="exampleType" placeholder="Checkout Type">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="numbers" class="form-control form-control-user" id="exampleValue" placeholder="Checkout Value">
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <textarea rows="4" class="form-control form-control-user" id="exampleTerms" placeholder="Terms and Conditions"></textarea>
+                    </div>
+                    <hr>
+                    <a href="login.html" class="btn btn-primary btn-user btn-block">
+                    Register Hotel
                     </a>
                 </form>
                 <hr>
