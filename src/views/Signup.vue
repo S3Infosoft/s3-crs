@@ -14,21 +14,18 @@
                 <form class="user">
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Name of Hotel">
+                        <input v-model="name" type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Name of Hotel">
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Name of Organisation">
+                        <input v-model="organisation" type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Name of Organisation">
                     </div>
                     </div>
                     <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                    <input v-model="email" type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
                     </div>
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Create Password">
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                        <input v-model="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Create Password">
                     </div>
                     </div>
                     <hr>
@@ -120,4 +117,32 @@
 
     </div>
 </template>
-    
+
+<script>
+export default {
+    data(){
+        return{
+            name:'',
+            organisation:'',
+            email:'',
+            password:'',
+            one:File,
+            two:File,
+            three:File,
+            four:File,
+            city:'',
+            state:'',
+            zip:'',
+            country:'',
+            currency:'',
+            address:'',
+            description:'',
+            outtime:'',
+            intime:'',
+            outtype:'',
+            outvalue:'',
+            terms:''
+        }
+    }
+}
+</script>
