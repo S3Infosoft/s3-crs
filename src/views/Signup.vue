@@ -36,30 +36,30 @@
 				</div><br>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" id="exampleCity" placeholder="City">
+                        <input v-model="city" type="text" class="form-control form-control-user" id="exampleCity" placeholder="City">
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" id="exampleState" placeholder="State">
+                        <input v-model="state" type="text" class="form-control form-control-user" id="exampleState" placeholder="State">
                     </div>
                     </div>
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="numbers" class="form-control form-control-user" id="exampleZIP" placeholder="ZIP">
+                        <input v-model="zip" type="numbers" class="form-control form-control-user" id="exampleZIP" placeholder="ZIP">
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" id="exampleCountry" placeholder="Country">
+                        <input v-model="country" type="text" class="form-control form-control-user" id="exampleCountry" placeholder="Country">
                     </div>
                     </div>
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" id="exampleCurrency" placeholder="Currency Preference">
+                        <input v-model="currency" type="text" class="form-control form-control-user" id="exampleCurrency" placeholder="Currency Preference">
                     </div>
                     </div>
                 <div class="form-group">
-                    <textarea rows="2" class="form-control form-control-user" id="Exampleaddress" placeholder="Address"></textarea>
+                    <textarea v-model="address" rows="2" class="form-control form-control-user" id="Exampleaddress" placeholder="Address"></textarea>
                     </div>
                     <div class="form-group">
-                    <textarea rows="3" class="form-control form-control-user" id="Exampledescription" placeholder="Description"></textarea>
+                    <textarea v-model="description" rows="3" class="form-control form-control-user" id="Exampledescription" placeholder="Description"></textarea>
                     </div>
                     <hr>
                     <div class="col-sm-6 mt-3">
@@ -71,10 +71,10 @@
                 <h4>Hotel Policy Section</h4>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="numbers" class="form-control form-control-user" id="examplein" placeholder="Check out Time">
+                        <input v-model="outtime" type="numbers" class="form-control form-control-user" id="examplein" placeholder="Check out Time">
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-user" id="exampleOut" placeholder="Check in Time">
+                        <input v-model="intime" type="text" class="form-control form-control-user" id="exampleOut" placeholder="Check in Time">
                     </div>
                     </div>
                     <b><h6>Late Checkout allowed</h6></b>
@@ -88,18 +88,18 @@
                     </div>
                     <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                        <input type="text" class="form-control form-control-user" id="exampleType" placeholder="Checkout Type">
+                        <input v-model="outtype" type="text" class="form-control form-control-user" id="exampleType" placeholder="Checkout Type">
                     </div>
                     <div class="col-sm-6">
-                        <input type="numbers" class="form-control form-control-user" id="exampleValue" placeholder="Checkout Value">
+                        <input v-model="outvalue" type="numbers" class="form-control form-control-user" id="exampleValue" placeholder="Checkout Value">
                     </div>
                     </div>
                     <div class="form-group">
-                    <textarea rows="4" class="form-control form-control-user" id="exampleTerms" placeholder="Terms and Conditions"></textarea>
+                    <textarea v-model="terms" rows="4" class="form-control form-control-user" id="exampleTerms" placeholder="Terms and Conditions"></textarea>
                     </div>
                     <hr>
-                    <a href="login.html" class="btn btn-primary btn-user btn-block">
-                    Register Hotel
+                    <a @click="registerUser()" href="" class="btn btn-primary btn-user btn-block">
+                    <router-link class="nav-link" to="/login">Register Hotel</router-link>
                     </a>
                 </form>
                 <hr>
@@ -119,6 +119,7 @@
 </template>
 
 <script>
+import Axios from 'axios';
 export default {
     data(){
         return{
@@ -126,10 +127,6 @@ export default {
             organisation:'',
             email:'',
             password:'',
-            one:File,
-            two:File,
-            three:File,
-            four:File,
             city:'',
             state:'',
             zip:'',
@@ -142,6 +139,32 @@ export default {
             outtype:'',
             outvalue:'',
             terms:''
+        }
+    },
+    methods:{
+        registerUser(){
+            Axios.post('https://hotels.s3infosoft.com/api/v1/getHotelDetails/auth/register', {
+                name: this.name,
+                organisation: this.organisation,
+                email: this.email,
+                password: this.password,
+                city: this.city,
+                state: this.state,
+                zip: this.zip,
+                country: this.country,
+                currency: this.currency,
+                address: this.address,
+                description: this.description,
+                outtime: this.outtime,
+                intime: this.intime,
+                outtype: this.outtype,
+                outvalue: this.outvalue,
+                terms: this.terms
+            }).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log(error)
+            })
         }
     }
 }
