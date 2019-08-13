@@ -31,8 +31,8 @@
                     <hr>
                     <div class="col-sm-6 mt-3">
                         <h5><b>Hotel Details</b></h5>
-					<b>Image One</b><input type="file" name="image" class="form-control-file">
-                    <b>Image Two</b><input type="file" name="image" class="form-control-file">
+					<b>Image One</b><input type="file" @change="onFileSelected" name="image" class="form-control-file">
+                    <b>Image Two</b><input type="file" @change="onFileSelected" name="image" class="form-control-file">
 				</div><br>
                 <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -138,12 +138,15 @@ export default {
             intime:'',
             outtype:'',
             outvalue:'',
-            terms:''
+            terms:'',
+            selectedFile: null
         }
     },
     methods:{
         registerUser(){
-            Axios.post('https://hotels.s3infosoft.com/api/v1/getHotelDetails/auth/register', {
+            const fd = new FormData();
+            fd.append('one', this.selectedFile, this.selectedFile.name)
+            axios.post('https://react-blog-api.bahdcasts.com/api/auth/register', {
                 name: this.name,
                 organisation: this.organisation,
                 email: this.email,
@@ -159,12 +162,16 @@ export default {
                 intime: this.intime,
                 outtype: this.outtype,
                 outvalue: this.outvalue,
-                terms: this.terms
+                terms: this.terms,
+                fd
             }).then(response => {
                 console.log(response)
             }).catch(error => {
                 console.log(error)
             })
+        },
+        onFileSelected(event){
+            this.selectedFile = event.target.files[0]
         }
     }
 }
